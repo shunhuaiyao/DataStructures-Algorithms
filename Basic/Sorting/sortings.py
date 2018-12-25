@@ -1,5 +1,5 @@
 import math
-class Sorter(object):
+class Sorter:
     def mergeSort(self, nums):
         """
         Sorting a list of integer numbers in ascending order by merge sort
@@ -76,4 +76,4 @@ class Sorter(object):
         nums[j] = pivot
         nums[front] = temp
         return j
-        
+    
