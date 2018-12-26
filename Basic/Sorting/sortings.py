@@ -7,13 +7,13 @@ class Sorter:
         """
         if len(nums) > 1:
             mid = len(nums)//2
-            lefSubNums = nums[:mid]
+            leftSubNums = nums[:mid]
             rightSubNums = nums[mid:]
             leftSorter = Sorter()
             rightSorter = Sorter()
-            leftSorter.mergeSort(lefSubNums)
+            leftSorter.mergeSort(leftSubNums)
             rightSorter.mergeSort(rightSubNums)
-            self.conquer(nums, lefSubNums, rightSubNums)
+            self.conquer(nums, leftSubNums, rightSubNums)
     def conquer(self, nums, leftSubNums, rightSubNums):
         """
         Merging two sublist in ascending order into a list
@@ -76,4 +76,16 @@ class Sorter:
         nums[j] = pivot
         nums[front] = temp
         return j
-    
+    def insertionSort(self, nums):
+        """
+        Sort a list by insertion sort
+        :type nums: List[int]
+        """
+        if len(nums) > 1:
+            for i in range(1, len(nums)):
+                key = nums[i]
+                j = i - 1
+                while key < nums[j] and j >= 0:
+                    nums[j+1] = nums[j]
+                    j -= 1
+                nums[j+1] = key
