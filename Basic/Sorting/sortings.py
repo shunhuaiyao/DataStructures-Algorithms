@@ -2,6 +2,7 @@ import math
 class Sorter:
     def mergeSort(self, nums):
         """
+        Divide and Conquer
         Sorting a list of integer numbers in ascending order by merge sort
         :type nums: List[int]
         """
@@ -9,10 +10,8 @@ class Sorter:
             mid = len(nums)//2
             leftSubNums = nums[:mid]
             rightSubNums = nums[mid:]
-            leftSorter = Sorter()
-            rightSorter = Sorter()
-            leftSorter.mergeSort(leftSubNums)
-            rightSorter.mergeSort(rightSubNums)
+            self.mergeSort(leftSubNums)
+            self.mergeSort(rightSubNums)
             self.conquer(nums, leftSubNums, rightSubNums)
     def conquer(self, nums, leftSubNums, rightSubNums):
         """
@@ -21,9 +20,9 @@ class Sorter:
         :type leftSubNums: List[int]
         :type rightSubNums: List[int]
         """
-        i = 0
-        j = 0
-        k = 0
+        i = 0 # i is a indicator of leftSubNums
+        j = 0 # j is an indicator of rightSubNums
+        k = 0 # k is an indicator of nums
         leftSubNums.append(math.inf)
         rightSubNums.append(math.inf)
         while k < len(nums):
@@ -36,22 +35,22 @@ class Sorter:
             k += 1
     def quickSort(self, nums):
         """
+        Divide and Conquer
         Quick sort a list in ascending order
         :type nums: List[int]
         """
         self.quickSortHelpler(nums, 0, len(nums) - 1)
     def quickSortHelpler(self, nums, front, end):
         """
+        partition 會把所有比splitPoint小的數放左邊，比splitPoint大的數放右邊
         :type nums: List[int]
         :type front: int
         :type end: int
         """
         if front < end:
             splitPoint = self.partition(nums, front, end)
-            leftSorter = Sorter()
-            rightSorter = Sorter()
-            leftSorter.quickSortHelpler(nums, front, splitPoint - 1)
-            rightSorter.quickSortHelpler(nums, splitPoint + 1, end)
+            self.quickSortHelpler(nums, front, splitPoint - 1)
+            self.quickSortHelpler(nums, splitPoint + 1, end)
     def partition(self, nums, front, end):
         """
         Sort a partition and return a split point
@@ -78,6 +77,7 @@ class Sorter:
         return j
     def insertionSort(self, nums):
         """
+        在處理第i筆資料時，第1筆至第i−1筆資料必須先排好序。
         Sort a list by insertion sort
         :type nums: List[int]
         """

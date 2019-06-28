@@ -24,4 +24,4 @@ class Solution:
         while startIndex >= 0 and endIndex < len(s) and s[startIndex] == s[endIndex]:
             startIndex -= 1
             endIndex += 1
-        return endIndex - startIndex + 1 - 2
+        return endIndex - 1 - startIndex 
