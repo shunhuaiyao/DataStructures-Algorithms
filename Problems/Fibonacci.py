@@ -13,6 +13,7 @@ class Solution:
         return fibonacci
 
     def nthOfFibonacci(self, n):
+        # return the nth number of Fibonacci
         """
         Sol 1:
         interative function
